@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Orders{% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box-element">
+            <a class="btn btn-outline-dark" href="{% url 'category' %}">&#x2190; Back to Home</a>
+            <a style="float:right; margin:5px;" class="btn btn-success " href="{% url 'cancelled' %}">Cancelled Orders</a>
+            
+            <hr>
+            <h3 class="text-center">Orders</h3>
+            <hr>
+            <div class="cart-row">
+				<div style="flex:2">
+					<p><strong>Product</strong></p>
+				</div>
+				<div style="flex:2">
+					<p><strong>Product Name</strong></p>
+				</div>
+				<div style="flex:1">
+					<p><strong>Price</strong></p>
+				</div>
+				<div style="flex:1">
+					<p><strong>Quantity</strong></p>
+				</div>
+                <div style="flex:1">
+					<p><strong>Status</strong></p>
+				</div>
+                <div style="flex:1">
+					<p><strong>Order Details</strong></p>
+				</div>
+                
+			</div>
+        
+
+            
+            {% for item in order_items %}
+            <div class="cart-row">
+                <div style="flex:2"><img class="row-image" src="{{item.product.imageUrl}}"></div>
+                <div style="flex:2">
+                    <p>{{item.product.name}}</p>
+                </div>
+                <div style="flex:1">
+                    <p>{{item.get_total}}</p>
+                </div>
+                <div style="flex:1">
+                    <p>x{{item.quantity}}</p>
+                </div>
+                <div style="flex:1">
+                    <p>{{item.order.status}}</p>
+                </div>
+                <div style="flex:1">
+                    <p><a style="text-decoration: none;" href="{% url 'order_status' item.id %}">Click here to see Order Details or Cancel the Order</a></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
