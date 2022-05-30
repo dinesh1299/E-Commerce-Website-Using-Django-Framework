@@ -35,9 +35,7 @@
 				<dd class="col-sm-9">{{order_item.get_total}}</dd>
 
 			  </dl>
-			  {% if order_item.order.status == "pending" %}
-			  <a class="btn btn-success" href="{% url 'cancel_order' order_item.id %}">Cancel</a>
-			  {% endif %}
+			  
 		</div>
 
 		
