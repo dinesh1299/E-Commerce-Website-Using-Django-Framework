@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Status{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="box-element">
+
+			<a class="btn btn-outline-dark" href="{% url 'category' %}">&#x2190; Continue Shopping</a>
+
+			<br>
+			<br>
+			<dl class="row">
+				<dt class="col-sm-3">Item</dt>
+				<dd class="col-sm-9">{{order_item.product.name}}</dd>
+			  
+				<dt class="col-sm-3">Price</dt>
+				<dd class="col-sm-9">Rs.{{order_item.product.price}}</dd>
+			  
+				<dt class="col-sm-3">Quantity</dt>
+				<dd class="col-sm-9">{{order_item.quantity}}</dd>
+			  
+				<dt class="col-sm-3">Ordered Date</dt>
+				<dd class="col-sm-9">{{order.dateOrdered}}</dd>
+			    
+				<dt class="col-sm-3">Order Id</dt>
+				<dd class="col-sm-9">{{order.transactionId}}</dd>
+
+				<dt class="col-sm-3">Status</dt>
+				<dd class="col-sm-9">{{order.status}}</dd>
+
+				<dt class="col-sm-3">Total</dt>
+				<dd class="col-sm-9">{{order_item.get_total}}</dd>
+
+			  </dl>
+			  {% if order_item.order.status == "pending" %}
+			  <a class="btn btn-success" href="{% url 'cancel_order' order_item.id %}">Cancel</a>
+			  {% endif %}
+		</div>
+
+		
+	</div>
+</div>
+
+
+{% endblock %}

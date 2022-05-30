@@ -32,8 +32,8 @@
                 <div style="flex:1">
 					<p><strong>Status</strong></p>
 				</div>
-                <div style="flex:2">
-					<p><strong>Order Details/Cancel Order</strong></p>
+                <div style="flex:1">
+					<p><strong>Order Details</strong></p>
 				</div>
                 
 			</div>
@@ -55,14 +55,8 @@
                 <div style="flex:1">
                     <p>{{item.order.status}}</p>
                 </div>
-                <div style="flex:2">
-                    <div class="me-5" style="display:flex; justify-content:space-between;">
-                    <p><a style="text-decoration: none;" href="{% url 'order_status' item.id %}">Order Details</a></p>
-                    {% if item.order.status == "pending" %}
-                    /
-                    <p><a style="text-decoration: none;" href="{% url 'cancel_order' item.id %}">Cancel Order</a></p>
-                    {% endif %}
-                    </div>
+                <div style="flex:1">
+                    <p><a style="text-decoration: none;" href="{% url 'order_status' item.id %}">Click here to see Order Details or Cancel the Order</a></p>
                 </div>
             </div>
             {% endfor %}
