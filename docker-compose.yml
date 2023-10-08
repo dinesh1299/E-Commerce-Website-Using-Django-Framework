@@ -16,7 +16,9 @@ services:
     container_name: postgres-db
 
   app:
-    build: .
+    build: 
+      - context: .
+      - dockerfile: Dockerfile
     command: 'python manage.py runserver 8000'
     ports:
       - '8000:8000'
