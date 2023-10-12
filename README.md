@@ -1,4 +1,3 @@
-# E-Commerce-Website-Using-Django-Framework
 # Django Ecommerce Project
 
 A Django-based e-commerce web application.
