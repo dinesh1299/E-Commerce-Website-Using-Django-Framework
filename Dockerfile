@@ -1,17 +1,13 @@
 # Use the official Python image
 FROM python:3.10
 
-# Set the working directory inside the container
-WORKDIR /Ecommerce
+RUN apt update &&\
+    apt-get install -y git
 
-# Copy the project files into the container
-COPY . /Ecommerce
+WORKDIR /ecommerce
 
-# Install project dependencies
+COPY . /ecommerce
+
 RUN pip install -r requirements.txt
 
-# Expose port 8000 for the Django application
-EXPOSE 8000
-
-# Start the Django development server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "/ecommerce/manage.py runserver 0.0.0.0:8000"]

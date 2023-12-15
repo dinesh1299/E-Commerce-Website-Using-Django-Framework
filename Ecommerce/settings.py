@@ -90,9 +90,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': "postgres",
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': '5432',
+        'PASSWORD': 'ecommerce',
+        'HOST': '10.91.16.212',
+        'PORT': '5433',
     },
 }
 
@@ -132,13 +132,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS=[
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_URL='/media/'
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -146,8 +146,8 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-razorpay_id=os.environ.get('razorpay_id')
-razorpay_account_id=os.environ.get('razorpay_account_id')
+razorpay_id = os.environ.get('razorpay_id')
+razorpay_account_id = os.environ.get('razorpay_account_id')
 
 
 from dotenv import load_dotenv

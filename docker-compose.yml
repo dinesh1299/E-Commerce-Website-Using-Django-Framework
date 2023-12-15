@@ -2,30 +2,24 @@ version: '3.9'
 
 services:
 
-  db:
-    image: postgres
-    restart: always
-    ports:
-      - "0.0.0.0:5432:5432"
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER : postgres
-      POSTGRES_PASSWORD: postgres
+  ecommerce_project:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ecommerce_app:latest
+    command:
+      - sleep
+      - Infinity
+    env_file:
+      - ".env"
     volumes:
-      - postgresql-data:/var/lib/postgresql/data
-    container_name: postgres-db
-
-  app:
-    build: 
-      - context: .
-      - dockerfile: Dockerfile
-    command: 'python manage.py runserver 8000'
+      - .:/ecommerce
     ports:
-      - '8000:8000'
-    depends_on:
-      - db
+      - 8000:8000
+    networks:
+      - ecommerce-network
     container_name: ecommerce
 
-volumes:
-  postgresql-data:
-    driver: local
+networks:
+  ecommerce-network:
+    driver: bridge
