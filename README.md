@@ -15,10 +15,11 @@ Go to windows powershell as administrator and follow the steps:
 
 ## Initial setup
 1. make build
-2. make database
-3. make makemigrations
-4. make migrate
-5. make createsuperuser
+2. Go to settings.py in Ecommerce then change DATABASES - HOST: #your ip address
+3. make database
+4. make makemigrations
+5. make migrate
+6. make createsuperuser
    
 ## Usage
 
