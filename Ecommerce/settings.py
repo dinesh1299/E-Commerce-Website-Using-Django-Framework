@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': "postgres",
         'USER': 'postgres',
         'PASSWORD': 'ecommerce',
-        'HOST': '10.91.16.212',
+        'HOST': os.getenv('DB_HOST'),
         'PORT': '5433',
     },
 }

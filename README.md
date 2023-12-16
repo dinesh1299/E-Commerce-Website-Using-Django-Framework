@@ -18,6 +18,7 @@ Go to windows powershell as administrator and follow the steps:
 2. make database
 3. make makemigrations
 4. make migrate
+5. make createsuperuser
    
 ## Usage
 

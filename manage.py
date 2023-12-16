@@ -2,7 +2,13 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+import django
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Ecommerce.settings')
+django.setup()
+from django.contrib.auth.models import User
+from django.utils import timezone
+from project.models import Customer, Order
+from uuid import uuid4
 
 def main():
     """Run administrative tasks."""
@@ -18,5 +24,29 @@ def main():
     execute_from_command_line(sys.argv)
 
 
+def createsuperuser():
+    user = User.objects.create_superuser(
+        username='admin',
+        password='admin',
+        email='test@ecommerce.com',
+        last_login=timezone.now()
+    )
+    customer = Customer.objects.create(
+                user=user,
+                name=user.first_name,
+                email=user.email,
+                auth_token=str(uuid4()),
+                is_verified=True
+            )
+    order = Order.objects.create(
+        customer=customer,
+        order_type='cart_order'
+    )
+    customer.save()
+    order.save()
+
 if __name__ == '__main__':
+    if sys.argv[1] == 'createsuperuser':
+        createsuperuser()
+        exit()
     main()
