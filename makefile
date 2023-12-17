@@ -4,7 +4,7 @@ export
 
 
 .PHONY: deploy
-deploy: stop build start
+deploy: stop build database makemigrations migrate createsuperuser start 
 
 .PHONY: build
 build:
