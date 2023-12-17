@@ -14,12 +14,8 @@ Go to windows powershell as administrator and follow the steps:
 2. Navigate to the project directory: `cd E-Commerce-Website-Using-Django-Framework`
 
 ## Initial setup
-1. make build
-2. Go to settings.py in Ecommerce then change DATABASES - HOST: #your ip address
-3. make database
-4. make makemigrations
-5. make migrate
-6. make createsuperuser
+1. Go to settings.py in Ecommerce then change DATABASES - HOST: #your ip address
+2. make deploy
    
 ## Usage
 
