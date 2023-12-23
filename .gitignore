@@ -1,4 +1,4 @@
 .env
-/Ecommerce/__pycache__/
-/project/__pycache__/
+/__pycache__/
+*/__pycache__/
 /project/migrations/__pycache__/
